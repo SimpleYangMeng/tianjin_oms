@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/ServiceForAsn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="ServiceForAsn" targetNamespace="http://www.example.org/ServiceForAsn/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.example.org/ServiceForAsn/">
+			<xsd:complexType name="HeaderRequest">
+				<xsd:sequence>
+					<xsd:element name="customerCode" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="appToken" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="appKey" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+			<xsd:element name="createAsn">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="HeaderRequest" type="tns:HeaderRequest"></xsd:element>
+						<xsd:element name="ASNInfo" type="tns:ASNInfo">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="createAsnResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="ask" type="xsd:string"></xsd:element>
+						<xsd:element name="message" type="xsd:string">
+						</xsd:element>
+						<xsd:element name="error" type="tns:errorType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+						<xsd:element name="ASNCode" type="xsd:string">
+						</xsd:element>						
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="ASNInfo">
+				<xsd:sequence>
+					<xsd:element name="warehouseCode" type="xsd:string"
+						maxOccurs="1" minOccurs="1">
+					</xsd:element>
+					<xsd:element name="toWarehouseCode"
+						type="xsd:string" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="ref_code" type="xsd:string"
+						maxOccurs="1" minOccurs="1">
+					</xsd:element>
+
+					<xsd:element name="wrapType" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="wrapQty" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="receive_model_type"
+						type="xsd:string" maxOccurs="1" minOccurs="1">
+					</xsd:element>
+					<xsd:element name="roughweight" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="volumeWeight" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="instructions" type="xsd:string"
+						maxOccurs="1" minOccurs="1">
+					</xsd:element>
+					<xsd:element name="billOfLading" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="cabinetNo" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="consignor" type="xsd:string"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="ASNItems" type="tns:ASNItemsType"
+						maxOccurs="unbounded" minOccurs="1">
+					</xsd:element>
+
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="ASNItemsType">
+            	<xsd:sequence>
+            		<xsd:element name="productInfo" type="tns:ProductArray" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            		<xsd:element name="OrderInfo" type="tns:OrderArray" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+			
+			<xsd:complexType name="OrderArray">
+            	<xsd:sequence>
+            		<xsd:element name="asn_order" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+		
+            <xsd:complexType name="ProductArray">
+            	<xsd:sequence>
+            		<xsd:element name="product_sku" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+            		<xsd:element name="quantity" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+            		<xsd:element name="totalWeight" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>		
+            
+            <xsd:element name="updateAsn">
+            	<xsd:complexType>
+            		<xsd:sequence>
+						<xsd:element name="HeaderRequest" type="tns:HeaderRequest"></xsd:element>
+						<xsd:element name="UpdateASNInfo" type="tns:updateAsnInfo"></xsd:element>						
+					</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+			
+			<xsd:complexType name="updateAsnInfo">
+				<xsd:sequence>
+					<xsd:element name="ASNCode" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="warehouseCode" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="toWarehouseCode" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="ref_code" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="receive_model_type" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="roughweight" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="volumeWeight" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="wrapType" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="wrapQty" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="billOfLading" type="xsd:string" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="cabinetNo" type="xsd:string" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="consignor" type="xsd:string" maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="instructions" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="ASNItems" type="tns:ASNItemsType" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>		
+			
+            <xsd:element name="updateAsnResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+						<xsd:element name="ask" type="xsd:string"></xsd:element>
+						<xsd:element name="message" type="xsd:string">
+						</xsd:element>
+						<xsd:element name="error" type="tns:errorType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+						<xsd:element name="ASNCode" type="xsd:string">
+						</xsd:element>						
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="getAsnByCode">
+            	<xsd:complexType>
+            		<xsd:sequence>
+						<xsd:element name="HeaderRequest" type="tns:HeaderRequest"></xsd:element>
+            			<xsd:element name="ASNCode" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>            			
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAsnByCodeResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+						<xsd:element name="ask" type="xsd:string"></xsd:element>
+						<xsd:element name="message" type="xsd:string">
+						</xsd:element>
+						<xsd:element name="error" type="tns:errorType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+						<xsd:element name="Data" type="tns:ASNData" maxOccurs="1" minOccurs="0">
+						</xsd:element>						
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+			
+			<xsd:complexType name="errorType">
+            	<xsd:sequence>
+            		<xsd:element name="errorMessage" type="xsd:string"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+		
+            <xsd:complexType name="ASNData">
+            	<xsd:sequence>
+
+            		<xsd:element name="receiving_code" type="xsd:string"></xsd:element>
+            		<xsd:element name="reference_no" type="xsd:string"></xsd:element>
+            		<xsd:element name="warehouseCode" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+            		<xsd:element name="toWarehouseCode" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+            		<xsd:element name="receiving_update_user" type="xsd:string"></xsd:element>
+            		<xsd:element name="receiving_add_user" type="xsd:string"></xsd:element>
+            		<xsd:element name="customer_code" type="xsd:string"></xsd:element>
+            		<xsd:element name="receiving_type" type="xsd:string"></xsd:element>
+            		<xsd:element name="receiving_status" type="xsd:string"></xsd:element>
+            		<xsd:element name="contacter" type="xsd:string"></xsd:element>
+            		<xsd:element name="contact_phone" type="xsd:string"></xsd:element>
+            		<xsd:element name="receiving_description" type="xsd:string"></xsd:element>
+            		<xsd:element name="receiving_add_time" type="xsd:string"></xsd:element>
+            		<xsd:element name="receiving_update_time" type="xsd:string"></xsd:element>
+            		<xsd:element name="refercence_form_id" type="xsd:string"></xsd:element>
+            		<xsd:element name="form_type" type="xsd:string"></xsd:element>
+            		<xsd:element name="traf_name" type="xsd:string"></xsd:element>
+            		<xsd:element name="wrap_type" type="xsd:string"></xsd:element>
+            		<xsd:element name="pack_no" type="xsd:string"></xsd:element>
+            		<xsd:element name="traf_mode" type="xsd:string"></xsd:element>
+            		<xsd:element name="trade_mode" type="xsd:string"></xsd:element>
+            		<xsd:element name="trans_mode" type="xsd:string"></xsd:element>
+            		<xsd:element name="conta_id" type="xsd:string"></xsd:element>
+            		<xsd:element name="conta_model" type="xsd:string"></xsd:element>
+            		<xsd:element name="conta_wt" type="xsd:string"></xsd:element>
+            		<xsd:element name="haveconta" type="xsd:string"></xsd:element>
+            		<xsd:element name="eda_date" type="xsd:string"></xsd:element>
+            		<xsd:element name="expected_date" type="xsd:string"></xsd:element>
+            		<xsd:element name="receive_model_type" type="xsd:string"></xsd:element>
+            		<xsd:element name="roughweight" type="xsd:string"></xsd:element>
+            		<xsd:element name="volumnweight" type="xsd:string"></xsd:element>
+					<xsd:element name="productDetail" type="tns:productDetail" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+					<xsd:element name="OrderDetail" type="tns:OrderDetail" maxOccurs="unbounded" minOccurs="0"></xsd:element>            		
+            	</xsd:sequence>
+            </xsd:complexType>		
+            
+		
+            <xsd:complexType name="OrderDetail">
+            	<xsd:sequence>
+            		<xsd:element name="order_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="customer_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="warehouseCode" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="toWarehouseCode" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="order_type" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="sm_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="parcel_declared_value" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="shipping_fee_estimate" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="currency_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="parcel_contents" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="parcel_quantity" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="order_status" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="problem_status" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="underreview_status" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="intercept_status" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="sync_status" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="print_quantity" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="add_time" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="update_time" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="order_pick_type" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="reference_no" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="picker_id" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="remark" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="receiving_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="order_mode_type" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="change_order" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="wrap_type" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="grossWt" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="netWt" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="goodsValue" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="charge" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="other" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="IdType" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="idNumber" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="ieType" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="im_port" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="declareDate" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+
+
+		
+            <xsd:complexType name="productDetail">
+            	<xsd:sequence>
+            		<xsd:element name="product_sku" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+            		<xsd:element name="product_barcode" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+            		<xsd:element name="customer_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_title_en" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_title" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_status" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_receive_status" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="hs_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="currency_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="pu_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_length" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_width" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_height" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_net_weight" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_weight" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_sales_value" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_purchase_value" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_declared_value" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_is_qc" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_barcode_type" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_type" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="pc_id" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="pce_id" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_add_time" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="product_update_time" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="have_asn" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="e_commerce_website_code" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="e_commerce_website_name" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="country_code_of_origin" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="is_put_on_record" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="applyEnterpriseCode" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="applyEnterprise" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="applyUser" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="ieType" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="rd_receiving_qty" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="rd_putaway_qty" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="rd_received_qty" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="rdqc_status" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="putaway_time" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>        
+
+            
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="createAsnRequest">
+		<wsdl:part name="parameters" element="tns:createAsn"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="createAsnResponse">
+		<wsdl:part name="parameters" element="tns:createAsnResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="updateAsnRequest">
+		<wsdl:part name="parameters" element="tns:updateAsn"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="updateAsnResponse">
+		<wsdl:part name="parameters" element="tns:updateAsnResponse"></wsdl:part>
+	</wsdl:message>	
+	<wsdl:message name="getAsnByCodeRequest">
+		<wsdl:part name="parameters" element="tns:getAsnByCode"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getAsnByCodeResponse">
+		<wsdl:part name="parameters" element="tns:getAsnByCodeResponse"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="ServiceForAsn">
+
+		<wsdl:operation name="createAsn">
+			<wsdl:input message="tns:createAsnRequest"></wsdl:input>
+			<wsdl:output message="tns:createAsnResponse"></wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getAsnByCode">
+			<wsdl:input message="tns:getAsnByCodeRequest"></wsdl:input>
+			<wsdl:output message="tns:getAsnByCodeResponse"></wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="updateAsn">
+			<wsdl:input message="tns:updateAsnRequest"></wsdl:input>
+			<wsdl:output message="tns:updateAsnResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ServiceForAsnSOAP" type="tns:ServiceForAsn">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+
+		<wsdl:operation name="createAsn">
+			<soap:operation soapAction="http://www.example.org/ServiceForAsn/createAsn" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="updateAsn">
+			<soap:operation soapAction="http://www.example.org/ServiceForAsn/updateAsn" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>	
+		
+		<wsdl:operation name="getAsnByCode">
+			<soap:operation soapAction="http://www.example.org/ServiceForAsn/getAsnByCode" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>		
+		
+	</wsdl:binding>
+
+	
+	<wsdl:service name="ServiceForAsn">
+		<wsdl:port binding="tns:ServiceForAsnSOAP" name="ServiceForAsnSOAP">
+			<soap:address location="http://imoms.globex.cn/default/service-for-asn/web-service" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

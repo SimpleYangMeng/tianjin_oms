@@ -1,0 +1,80 @@
+2016-05-13T12:31:28+08:00 INFO (6): 2016-05-13 12:31:28: 接收接口数据-XML:array (
+  'checkData' => '<?xml version="1.0" encoding="UTF-8"?>
+<message><head><entryid>02082016I000000478</entryid><ieFlage>I</ieFlage><orderNo>OC0000002475</orderNo><logisticsNo>50002195307885</logisticsNo><logisticsCode>0208W00021</logisticsCode><logisticsName>天津天保宏信物流中心有限公司</logisticsName><checkResult>P</checkResult><checkDate>2016-05-04</checkDate><checkType>A</checkType><checkMan>simple</checkMan><checkOpinion>查验放行</checkOpinion></head></message>
+',
+) 
+
+2016-05-13T12:31:59+08:00 INFO (6): 2016-05-13 12:31:59: 接收接口数据-XML:array (
+  'checkData' => '<?xml version="1.0" encoding="UTF-8"?>
+<message><head><entryid>02082016I000000478</entryid><ieFlage>I</ieFlage><orderNo>OC0000002475</orderNo><logisticsNo>50002195307885</logisticsNo><logisticsCode>0208W00021</logisticsCode><logisticsName>天津天保宏信物流中心有限公司</logisticsName><checkResult>P</checkResult><checkDate>2016-05-04</checkDate><checkType>A</checkType><checkMan>simple</checkMan><checkOpinion>查验放行</checkOpinion></head></message>
+',
+) 
+
+2016-05-13T12:31:59+08:00 INFO (6): 2016-05-13 12:31:59: 数组数据:array (
+  'head' => 
+  array (
+    'entryid' => '02082016I000000478',
+    'ieFlage' => 'I',
+    'orderNo' => 'OC0000002475',
+    'logisticsNo' => '50002195307885',
+    'logisticsCode' => '0208W00021',
+    'logisticsName' => '天津天保宏信物流中心有限公司',
+    'checkResult' => 'P',
+    'checkDate' => '2016-05-04',
+    'checkType' => 'A',
+    'checkMan' => 'simple',
+    'checkOpinion' => '查验放行',
+  ),
+) 
+
+2016-05-13T12:35:31+08:00 INFO (6): 2016-05-13 12:35:31: 接收接口数据-XML:array (
+  'checkData' => '<?xml version="1.0" encoding="UTF-8"?>
+<message><head><entryid>02082016I000000478</entryid><ieFlage>I</ieFlage><orderNo>OC0000002475</orderNo><logisticsNo>50002195307885</logisticsNo><logisticsCode>0208W00021</logisticsCode><logisticsName>天津天保宏信物流中心有限公司</logisticsName><checkResult>P</checkResult><checkDate>2016-05-04</checkDate><checkType>A</checkType><checkMan>simple</checkMan><checkOpinion>查验放行</checkOpinion></head></message>
+',
+) 
+
+2016-05-13T12:35:31+08:00 INFO (6): 2016-05-13 12:35:31: 数组数据:array (
+  'head' => 
+  array (
+    'entryid' => '02082016I000000478',
+    'ieFlage' => 'I',
+    'orderNo' => 'OC0000002475',
+    'logisticsNo' => '50002195307885',
+    'logisticsCode' => '0208W00021',
+    'logisticsName' => '天津天保宏信物流中心有限公司',
+    'checkResult' => 'P',
+    'checkDate' => '2016-05-04',
+    'checkType' => 'A',
+    'checkMan' => 'simple',
+    'checkOpinion' => '查验放行',
+  ),
+) 
+
+2016-05-13T12:35:31+08:00 INFO (6): 2016-05-13 12:35:31: 返回数据:'<?xml version="1.0" encoding="UTF-8"?>
+<message><result>failure</result><msg>数据格式异常</msg><code>1002</code></message>
+' 
+
+2016-05-13T12:35:56+08:00 INFO (6): 2016-05-13 12:35:56: 接收接口数据-XML:array (
+  'checkData' => '<?xml version="1.0" encoding="UTF-8"?>
+<message><head><entryid>02082016I000000478</entryid><ieFlage>I</ieFlage><orderNo>OC0000002475</orderNo><logisticsNo>50002195307885</logisticsNo><logisticsCode>0208W00021</logisticsCode><logisticsName>天津天保宏信物流中心有限公司</logisticsName><checkResult>P</checkResult><checkDate>2016-05-04</checkDate><checkType>A</checkType><checkMan>simple</checkMan><checkOpinion>查验放行</checkOpinion></head></message>
+',
+) 
+
+2016-05-13T12:35:56+08:00 INFO (6): 2016-05-13 12:35:56: 数组数据:array (
+  'entryid' => '02082016I000000478',
+  'ieFlage' => 'I',
+  'orderNo' => 'OC0000002475',
+  'logisticsNo' => '50002195307885',
+  'logisticsCode' => '0208W00021',
+  'logisticsName' => '天津天保宏信物流中心有限公司',
+  'checkResult' => 'P',
+  'checkDate' => '2016-05-04',
+  'checkType' => 'A',
+  'checkMan' => 'simple',
+  'checkOpinion' => '查验放行',
+) 
+
+2016-05-13T12:35:56+08:00 INFO (6): 2016-05-13 12:35:56: 返回数据:'<?xml version="1.0" encoding="UTF-8"?>
+<message><result>success</result><msg>入库成功</msg><code>16</code></message>
+' 
+

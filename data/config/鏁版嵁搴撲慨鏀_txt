@@ -1,0 +1,119 @@
+#2013-09-04 william-fan
+alter table orders add column order_mode_type tinyint(1) not null default '0' comment '0:备货模式1:集货模式';
+#alter table orders add column change_single tinyint(1) not null default '0' comment '0:无换单1:换单';
+
+#2013-09-12 william-fan
+alter table orders add column cbeName varchar(100) not null default '' comment '电商名称';
+alter table orders add column ecpCode varchar(32) not null default '' comment '电商平台代码';
+alter table orders add column ecpName varchar(32) not null default '' comment '电商平台名称';
+alter table orders add column  `wrap_type` varchar(50) NOT NULL DEFAULT '' COMMENT '包装种类';
+alter table orders add column grossWt decimal(10,2) not null default 0.00 comment '毛重';
+alter table orders add column netWt decimal(10,2) not null default 0.00 comment '净重';
+alter table orders add column goodsValue decimal(10,2) not null default 0.00 comment '货值';
+alter table orders add column charge decimal(10,2) not null default 0.00 comment '总费用';
+alter table orders add column other decimal(10,2) not null default 0.00 comment '其他费用';
+alter table orders add column IdType tinyint(1) not null default 1 comment '1-身份证,2-军官证,3-护照,4-其它';
+alter table orders add column idNumber varchar(50) not null default '' comment '证件号码';
+alter table orders add column ieType tinyint(1) not null default '0' comment '进出口标志';
+alter table orders add column declareDate datetime not null default '0000-00-00 00:00:00' comment '申报时间';
+alter table orders add column `ie_port` varchar(50) NOT NULL DEFAULT '' COMMENT '进出口口岸' after ieType;
+create table order_send_address_book(
+osab_id int(11) not null auto_increment,
+`order_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单ID',
+`order_code` varchar(32) DEFAULT '0' COMMENT '订单code',
+shipper varchar(30) not null default '' comment '发货人',
+shipperAddress varchar(100) not null default '' comment '发货人地址',
+shipperTelephone varchar(50) not null default '' comment '发货人电话',
+`osab_country_id` int(11) NOT NULL DEFAULT '0' COMMENT '国家id',
+primary key(osab_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收货订单地址信息';
+
+#2013-09-17 willima-fan
+alter table receiving add column LogisticsCode varchar(50) not null default '' comment '物流企业代码';
+alter table receiving add column LogisticsName varchar(100) not null default '' comment '物流企业名称';
+alter table receiving add column TotalShippedNumber varchar(50) not null default '' comment '总运单号';
+alter table receiving add column LogisticsNo varchar(50) not null default '' comment '分运单号';
+alter table receiving add column EcpCode varchar(50) not null default '' comment '电商平台代码';
+alter table receiving add column EcpName varchar(50) not null default '' comment '电商平台名称';
+alter table receiving add column TrackNo varchar(50) not null default '' comment '物流跟踪号';
+alter table receiving add column TrackStatus varchar(50) not null default '' comment '物流跟踪状态';
+alter table receiving add column IdType tinyint(1) not null default '1' comment '证件类型 1-身份证2-军官证3-护照4-其它';
+alter table receiving add column `idNumber` varchar(50) NOT NULL DEFAULT '' COMMENT '证件号码';
+alter table receiving add column  `declareDate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '申报时间';
+alter table receiving add column crossFreight decimal(10,2) not null default 0.00 comment '跨境运费';
+alter table receiving add column freight decimal(10,2) not null default 0.00 comment '境内运费';
+alter table receiving add column supportValue decimal(10,2) not null default 0.00 comment '保价金额';
+alter table receiving add column roughweight decimal(10,2) not null default 0.00 comment '毛重';
+alter table receiving add column netweight decimal(10,2) not null default 0.00 comment '净重';
+alter table receiving add column deliveryWay varchar(50) not null default '' comment '交货方式';
+alter table receiving add column shipName varchar(50) not null default '' comment '运输工具名称';
+alter table receiving add column destinationPort varchar(50) not null default '' comment '装运港';
+alter table receiving add column  `ieType` tinyint(1) NOT NULL DEFAULT '0' COMMENT '进出口标志';
+
+
+create table receiving_send_address_book(
+rsab_id int(11) auto_increment,
+shipper varchar(50) not null default '' comment '',
+ShipperAddress varchar(100) not null default '' comment '发货人地址',
+ShipperTelephone varchar(50) NOT NULL DEFAULT '' COMMENT '发货人电话',
+`rsab_country_id` int(11) NOT NULL DEFAULT '0' COMMENT '国家id',
+primary key(rsab_id)
+) ENGINE=InnoDB  CHARSET=utf8 COMMENT='ASN发货人址信息';
+
+
+create table receiving_receive_address_book(
+rrab_id int(11) auto_increment,
+consignee varchar(50) not null default '' comment '收货人名称',
+consigneeAddress varchar(100) not null default '' comment '收货人地址',
+consigneeTelephone varchar(50) not null default '收货人电话',
+rrab_country_id int(11) not null default '0' comment '收货人国家',
+primary key(rrab_id)
+)Engine=InnoDB charset=utf8 comment='ASN收货人地址信息';
+
+
+CREATE TABLE `receiving_order_detail` (
+  `rod_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `receiving_id` int(11) NOT NULL DEFAULT '0' COMMENT '收货ID',
+  `receiving_code` varchar(32) NOT NULL DEFAULT '' COMMENT '收货订单Code',
+  `rd_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:在途;1:收货中;2:处理完成',
+  `order_code` varchar(32) NOT NULL DEFAULT '' COMMENT '订单序列',
+  `is_qc` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否质检',
+  `is_priority` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否需要优先处理',
+  `rd_note` varchar(1000) DEFAULT NULL COMMENT '备注',
+  `rd_add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `rd_update_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新时间',
+  PRIMARY KEY (`rod_id`),
+  KEY `receiving_code` (`receiving_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='收货订单详细表';
+
+
+CREATE TABLE `import` (
+  `ipt_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ipt_port` varchar(35) NOT NULL DEFAULT '' COMMENT '进出口口岸',
+  `ipt_port_name` varchar(50) NOT NULL DEFAULT '' COMMENT '进出口岸名称',
+  PRIMARY KEY (`ipt_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='进口口岸';
+
+alter table warehouse add column is_jihuo tinyint(1) not null default '1' comment '是否集货1:是0否';
+alter table warehouse add column is_beihuo tinyint(1) not null default '1' comment '是否备货1:是0否';
+alter table warehouse add column warehouse_name varchar(100) not null default '' comment '仓库名称';
+alter table warehouse add column is_first tinyint(1) not null default '0' comment '0:目的仓1:头程仓';
+
+
+
+alter table orders add column to_warehouse_id int(11) not null default '0' comment '目的仓' after warehouse_id;
+
+alter table receiving add column to_warehouse_id int(11) not null default '0' comment '目的仓' after warehouse_id;
+
+#2013-10-08 william-fan
+alter table receiving add column length decimal(10,2) not null default 0.00 comment '长(集货ASN有数据)';
+alter table receiving add column width decimal(10,2) not null default 0.00 comment '宽(集货ASN有数据)';
+alter table receiving add column heigh decimal(10,2) not null default 0.00 comment '高(集货ASN有数据)';
+
+
+
+
+
+
+
+

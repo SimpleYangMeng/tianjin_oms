@@ -1,0 +1,1331 @@
+@charset "utf-8";
+/* -----------------------------------------------------------
+    main stylesheet
+----------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+margin:  0;
+padding:  0;
+border:  0;
+outline:  0;
+font-size: 100%;
+/*vertical-align: baseline;*/
+background: transparent;
+}
+fieldset{
+    border:none;
+}
+html{
+    height: 100%;
+}
+input,select{vertical-align:middle;}
+.clearborder{border:none;}
+body
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /*background: #fff url("/images/header_background.png") repeat left top;
+    background: #d1d1d1 url("../../resources/images/background.png") repeat;*/
+    font-family: Lucida Grande, Verdana, Lucida Sans Regular, Lucida Sans Unicode, Arial, sans-serif;
+    font-family: '微软雅黑';
+    font-size: 12px;
+
+}
+/*清除浮动 建议用 .cl - simple*/
+.clear{clear:both;}
+.cl:after { content: "."; display: block; height:  0; clear: both; visibility: hidden; } .cl { zoom:  1; }
+/*竖线 | */
+.pipe {margin: 0 1px; color: #CCC;}
+.blue { color: #0066CC; margin: 0 2px;}
+.explain-col { border: 1px solid #ffbe7a; zoom: 1; background: #fffced; padding: 8px 10px; line-height: 20px;}
+.leftloat{ float:left;}
+.leftright{ float:right;}
+/* -----------------------------------------------------------
+    images
+----------------------------------------------------------- */
+
+img
+{
+    border: none;
+}
+
+/* -----------------------------------------------------------
+    anchors
+----------------------------------------------------------- */
+
+a
+{
+    color: #0066CC;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover
+{
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* -----------------------------------------------------------
+    headings
+----------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6{
+    color: #292929;
+    font-weight: bold;
+}
+
+h1{
+    font-size: 22px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+h3{
+    font-size: 14px;
+}
+
+h4{
+    font-size: 16px;
+}
+
+h5{
+    font-size: 14px;
+}
+
+h6{
+    font-size: 12px;
+}
+
+
+
+
+
+/* -----------------------------------------------------------
+    header
+----------------------------------------------------------- */
+
+#header
+{
+    min-width:1064px;
+    margin: 0;
+    padding: 0px 60px 0 60px;
+    background: #fff url("/images/header_background.png") repeat left top;
+}
+
+
+#header_top
+{
+    margin: 0;
+    padding: 0px 0px 0 0px;
+
+    min-width:1064px;
+
+/*  margin-top:2px;
+    margin-left:60px;
+    margin-right:60px;
+
+    margin-right:60px;*/
+    /*margin-bottom:5px;*/
+    background: #fff url("/images/header_background.png") repeat left top;
+    /*border:1px solid #ff0000;*/
+    /*background-color:#003971;*/
+    /*background: #fff url("../../resources/images/header_background.png") repeat;*/
+}
+
+
+/* -----------------------------------------------------------
+    header -> logo
+----------------------------------------------------------- */
+
+#header_top #logo
+{
+
+    /*background:  url("/images/logo3.png") no-repeat 60px 5px;*/
+
+    height:71px;
+
+
+}
+
+
+
+/* -----------------------------------------------------------
+    header   开始
+----------------------------------------------------------- */
+
+#header_top ul#user
+{
+    margin: 10px 60px 0px 0;
+    float: right;
+    height:30px;
+    color:#666;
+    font-size:12px;
+    font-weight:bold;
+
+
+}
+
+
+
+
+
+#header_top ul#user li
+{
+    margin: 0;
+    padding: 5px 12px 5px 12px;
+    list-style: none;
+    float: left;
+
+}
+
+#header_top ul#user li.first
+{
+    border-left: none;
+}
+
+#header_top ul#user li.last
+{
+    border-right: none;
+}
+
+#header_top ul#user li a
+{
+    color: #666;
+
+    text-decoration: none;
+}
+
+#header_top ul#user li a:hover
+{
+    color: #fff;
+    text-decoration: underline;
+}
+
+#header_top ul#user li.highlight a
+{
+    color: #ffffff;
+}
+
+#header_top ul#user li.highlight a:hover
+{
+    color: #376ea6;
+}
+
+#header #header-inner
+{
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    clear: both;
+    position: relative;
+    border-bottom: 6px solid #ffffff;
+    overflow:hidden;
+    border-bottom:1px solid #000;
+
+}
+
+/* -----------------------------------------------------------
+    header -> home
+----------------------------------------------------------- */
+
+#header #header-inner #home
+{
+    float: left;
+
+}
+
+#header #header-inner #home a
+{
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 46px;
+    display: block;
+    /*border:1px solid #ff0000;*/
+
+}
+
+#header #header-inner #home a:hover
+{
+    background-position: 0 -40px;
+}
+
+/* -----------------------------------------------------------
+    header -> quick
+----------------------------------------------------------- */
+
+#header #header-inner #quick,
+#header #header-inner #quick ul
+{
+    margin: 8px 0px 0px 0;
+    padding: 0;
+    position: relative;
+    float: right;
+    list-style-type: none;
+
+}
+
+#header #header-inner #quick li
+{
+    margin: 0 5px 0 0;
+    padding: 0;
+    position: relative;
+    float: left;
+    /*width:60px;
+    border:1px solid #ff0000;*/
+    display: inline;
+
+}
+
+#header #header-inner #quick li a
+{
+    top: 0;
+    left: 0;
+    padding: 0;
+    height: 1%;
+    display: block;
+    clear: both;
+    overflow: hidden;
+    background: #336699 url("../../resources/images/colors/blue/quick_l.png") no-repeat top left;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+    float: left;
+}
+
+#header #header-inner #quick li span
+{
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px 12px 8px 10px;
+    height: 1%;
+    display: block;
+    float: left;
+    background: url("../../resources/images/colors/blue/quick_r.png") no-repeat top right;
+    border-left: 1px solid #3f6f9f;
+}
+
+#header #header-inner #quick li span.normal
+{
+    padding: 10px 12px 8px 12px;
+    border: none;
+}
+
+#header #header-inner #quick li span.icon
+{
+    top: 0;
+    left: 0;
+    padding: 8px 8px 4px 8px;
+    background: url("../../resources/images/colors/blue/quick_l.png") no-repeat top left;
+    border-left: none;
+    border-right: 1px solid #2e5c89;
+}
+
+#header #header-inner #quick li a:hover
+{
+    background: #4e4e4e url("../../resources/images/colors/blue/quick_l_selected.png") no-repeat top left;
+}
+
+#header #header-inner #quick li a:hover span
+{
+    background: url("../../resources/images/colors/blue/quick_r_selected.png") no-repeat top right;
+    border-left: 1px solid #545454;
+}
+
+#header #header-inner #quick li a:hover span.normal
+{
+    border: none;
+}
+
+#header #header-inner #quick li a:hover span.icon
+{
+    background: url("../../resources/images/colors/blue/quick_l_selected.png") no-repeat top left;
+    border-left: none;
+    border-right: 1px solid #464646;
+}
+
+#header #header-inner #quick ul
+{
+    top: 29px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    display: none;
+    position: absolute;
+    background: #FFFFFF;
+    border: 1px solid #666;
+    border-top: 1px solid #003367;
+    z-index: 100;
+}
+
+#header #header-inner #quick li ul li
+{
+    border-bottom: 1px solid #dddddd;
+}
+
+#header #header-inner #quick li ul li.last
+{
+    border: none;
+}
+
+#header #header-inner #quick li ul li a
+{
+    margin: 0;
+    padding: 7px 9px 7px 9px;
+    height: 1%;
+    width: 182px;
+    height: auto;
+    display: block;
+    float: left;
+    background: #FFFFFF;
+    color: #0066CC;
+    font-weight: normal;
+}
+
+#header #header-inner #quick li ul li a.childs
+{
+    margin: 0;
+    padding: 7px 9px 7px 24px;
+    width: 167px;
+    background: #FFFFFF url("../../resources/images/plus.png") no-repeat 8px 9px;
+}
+
+#header #header-inner #quick li ul li a:hover
+{
+    color: #000000;
+    background: #FFFFFF;
+}
+
+#header #header-inner #quick li ul li a.childs:hover
+{
+    background: #FFFFFF url("../../resources/images/minus.png") no-repeat 8px 9px;
+}
+
+#header #header-inner #quick ul ul
+{
+    top: auto;
+}
+
+#header #header-inner #quick li ul ul
+{
+    right: 200px;
+}
+
+#header #header-inner #quick li:hover ul ul,
+#header #header-inner #quick li:hover ul ul ul,
+#header #header-inner #quick li:hover ul ul ul ul
+{
+    display: none;
+}
+
+#header #header-inner #quick li:hover ul,
+#header #header-inner #quick li li:hover ul,
+#header #header-inner #quick li li li:hover ul,
+#header #header-inner #quick li li li li:hover ul
+{
+    display: block;
+}
+
+/* -----------------------------------------------------------
+    header corners
+----------------------------------------------------------- */
+/*
+#header #header-inner div.corner
+{
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    background: url("/images/colors/blue/header_inner_corners.png") no-repeat;
+
+
+
+}
+
+
+#header #header-inner div.corner{
+background: url("/images/colors/blue/header_inner_corners.png");
+_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src="/images/colors/blue/header_inner_corners.png");
+_background:none;
+
+}
+
+#header #header-inner div.tl
+{
+    top: 0;
+    left: 0;
+    background-position: 0 0;
+}
+
+#header #header-inner div.tr
+{
+    top: 0;
+    right: 0;
+    background-position: -6px 0;
+}
+*/
+
+/* -----------------------------------------------------------
+    header   结束
+----------------------------------------------------------- */
+
+
+
+
+
+/* -----------------------------------------------------------
+    content 开始
+----------------------------------------------------------- */
+
+#content
+{
+    /*margin: 10px 60px 0px 60px;*/
+    min-width:1064px;
+    /*_width:1000px;*/
+
+    position:relative;
+    /*min-height: 100%;*/
+    min-height: 980px;
+    /*_height: 100%;*/
+    _height: 980px;
+    /*background: #fff url("/images/content.png") repeat-y top left; */
+    margin-top: 4px;
+}
+
+/* -----------------------------------------------------------
+    content -> left
+----------------------------------------------------------- */
+
+#content #left
+{
+    width: 225px;
+    position:absolute;
+    left:0;
+
+}
+
+/* -----------------------------------------------------------
+    content -> left -> menu
+----------------------------------------------------------- */
+
+#content #left #menu
+{
+    margin: 0px 10px 0 0px;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+/* -----------------------------------------------------------
+    content -> left -> menu / heading
+----------------------------------------------------------- */
+
+#content #left #menu h6
+{
+    margin: 1px 0 0 0;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+    background: #dfdfdf url("/images/menu.png") repeat-x;
+    color: #6e6e6e;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: left;
+}
+
+#content #left #menu h6 a
+{
+    margin: 0;
+    padding: 0;
+/*  height: 1%;*/
+    display: block;
+    clear: both;
+    overflow: hidden;
+    background: url("/images/menu_l.png") no-repeat top left;
+    color: #6e6e6e;
+    text-decoration: none;
+}
+
+#content #left #menu h6 span
+{
+    margin: 0;
+/*  padding: 9px 10px 7px 10px;*/
+/*  height: 1%;*/
+    display: block;
+    background: url("/images/menu_r.png") no-repeat top right;
+    padding-left: 10px;
+}
+
+#content #left #menu h6.selected
+{
+    background: #00376e url("../../resources/images/colors/blue/menu_selected.png") repeat-x;
+    color: #FFFFFF;
+}
+
+#content #left #menu h6.selected a
+{
+    background: url("../../resources/images/colors/blue/menu_l_selected.png") no-repeat top left;
+    color: #ffffff;
+}
+
+#content #left #menu h6.selected span
+{
+    background: url("../../resources/images/colors/blue/menu_r_selected.png") no-repeat top right;
+}
+
+/* -----------------------------------------------------------
+    content -> left -> menu / links
+----------------------------------------------------------- */
+
+#content #left #menu ul
+{
+    margin: 0 0 2px 0;
+    padding: 0;
+    background: #376ea6;
+    zoom:1
+}
+
+#content #left #menu ul.opened
+{
+    display: block;
+}
+
+#content #left #menu ul.closed
+{
+    display: none;
+}
+
+#content #left #menu li
+{
+    margin: 0;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+    list-style: none;
+    border-top: 1px solid #4377ab;
+    border-bottom: 1px solid #326395;
+    color: #ffffff;
+    font-size: 1px;
+    line-height: 0;
+}
+
+#content #left #menu li a
+{
+    margin: 0 0 0 6px;
+    padding: 7px 0 9px 18px;
+    height: 1%;
+    display: block;
+    float: left;
+    background: url("../../resources/images/colors/blue/menu_arrow.png") no-repeat 0 9px;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: normal;
+    text-decoration: none;
+}
+
+#content #left #menu li a:hover
+{
+    color: #b9dcff;
+}
+
+/* -----------------------------------------------------------
+    content -> left -> menu / collapsible
+----------------------------------------------------------- */
+
+#content #left #menu li.collapsible
+{
+    margin: -1px 0 0 0;
+    background: url("../../resources/images/colors/blue/menu_border.png") no-repeat top left;
+}
+
+#content #left #menu li.collapsible a
+{
+    margin: 0 0 0 26px;
+    padding: 8px 0 8px 0;
+    height: 1%;
+    display: block;
+    background: transparent;
+    float: left;
+    font-weight: bold;
+}
+
+#content #left #menu li.collapsible a.plus
+{
+    margin: 0;
+    padding: 7px 0 10px 26px;
+    height: 10px;
+    width: 100%;
+    display: block;
+    float: left;
+    background: url("../../resources/images/menu_plus.png") no-repeat 5px 10px;
+    border: none;
+}
+
+#content #left #menu li.collapsible a.minus
+{
+    margin: 0;
+    padding: 7px 0 10px 26px;
+    height: 10px;
+    width: 100%;
+    display: block;
+    float: left;
+    background: url("../../resources/images/menu_minus.png") no-repeat 5px 10px;
+    border: none;
+    border-bottom: 1px solid #326395;
+}
+
+#content #left #menu li ul
+{
+    margin: 0;
+    padding: 0;
+    border-left: 18px solid #326395;
+}
+
+#content #left #menu li ul.expanded
+{
+    display: block;
+}
+
+#content #left #menu li ul.collapsed
+{
+    display: none;
+}
+
+#content #left #menu li ul li
+{
+    margin: 0;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+    list-style: none;
+    background: url("../../resources/images/colors/blue/menu_arrow.png") no-repeat 10px 9px;
+    border-top: 1px solid #4377ab;
+    border-bottom: 1px solid #326395;
+    color: #ffffff;
+}
+
+#content #left #menu li.collapsible ul li a
+{
+    font-weight: normal;
+}
+
+#content #left #menu li.last
+{
+    border-bottom: none;
+}
+
+/* -----------------------------------------------------------
+    content -> left -> date picker
+----------------------------------------------------------- */
+
+#content #left #date-picker
+{
+    margin: 5px 10px 0 60px;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+#content #left #date-picker .ui-datepicker
+{
+    width: auto;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: none;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header
+{
+    padding: 5px 0 6px 0;
+    background: #dfdfdf url("../../resources/images/menu.png") repeat-x;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header .ui-datepicker-prev
+{
+    top: 0;
+    left: 0;
+    padding: 0;
+    background: url("../../resources/images/menu_l.png") no-repeat top left;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header .ui-datepicker-prev .ui-icon-circle-triangle-w
+{
+    top: 8px;
+    left: 8px;
+    width: 26px;
+    height: 30px;
+    background: url("../../resources/images/calender_prev.png") no-repeat 0 0;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header .ui-datepicker-next
+{
+    top: 0;
+    right: 0;
+    padding: 5px 12px 5px 0;
+    background: url("../../resources/images/menu_r.png") no-repeat top right;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header .ui-datepicker-next .ui-icon-circle-triangle-e
+{
+    top: 8px;
+    left: 14px;
+    width: 26px;
+    height: 30px;
+    background: url("../../resources/images/calender_next.png") no-repeat 0 0;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header .ui-datepicker-prev-hover
+{
+    top: 0;
+    left: 0;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header .ui-datepicker-prev-hover .ui-icon-circle-triangle-w
+{
+    background-position: 0 -30px;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header .ui-datepicker-next-hover
+{
+    top: 0;
+    right: 0;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header .ui-datepicker-next-hover .ui-icon-circle-triangle-e
+{
+    background-position: 0 -30px;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-header span
+{
+    color: #6e6e6e;
+    font-weight: bold;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-calendar
+{
+    margin: 5px auto;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-calendar th
+{
+    background: #f6f6f6;
+    border: 1px solid #dddddd;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#content #left #date-picker .ui-datepicker .ui-datepicker-calendar td
+{
+    padding: 5px 3px 5px 3px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+
+}
+
+/* -----------------------------------------------------------
+    content -> right
+----------------------------------------------------------- */
+
+#content #right
+{
+
+    margin: 0px;
+
+    padding: 0px;
+    _height:680px;
+    min-height:680px;
+    position:relative;
+    /*border:1px solid #ff0000;*/
+    margin-left:225px;
+    margin-bottom:20px;
+
+
+}
+
+/* -----------------------------------------------------------
+    content -> right -> box
+----------------------------------------------------------- */
+
+#content div.box
+{
+    /*margin: 10px 0 0 0;*/
+    /*padding: 0 0 10px 0;*/
+    clear: both;
+    padding:0px;
+    margin:0px;
+    /*overflow: hidden;*/
+    background: #ffffff;
+   /* border-radius: 6px 6px 6px 6px;*/
+}
+
+#content div.box-left
+{
+    width: 49%;
+    clear: none;
+    float: left;
+}
+
+#content div.box-right
+{
+    width: 49%;
+    clear: none;
+    float: right;
+}
+
+/* -----------------------------------------------------------
+    content -> right -> box / title
+----------------------------------------------------------- */
+
+#content div.box div.title
+{
+    margin: 0 0 20px 0;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+    background: #336699 url("../../resources/images/colors/blue/title.png") repeat-x;
+}
+
+#content div.box div.title h1,
+#content div.box div.title h2,
+#content div.box div.title h3,
+#content div.box div.title h4,
+#content div.box div.title h5,
+#content div.box div.title h6
+{
+    margin: 0;
+    padding: 11px 0 11px 10px;
+    float: left;
+    border: none;
+    color: #ffffff;
+}
+
+#content div.box div.title ul.links
+{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+#content div.box div.title ul.links li
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+}
+
+#content div.box div.title ul.links li a
+{
+    margin: 0;
+    padding: 13px 16px 12px 16px;
+    height: 1%;
+    display: block;
+    float: left;
+    background: url("../../resources/images/colors/blue/title_link.png") no-repeat top left;
+    border-left: 1px solid #316293;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#content div.box div.title ul.links li a:hover
+{
+    background: url("../../../resources/images/colors/blue/title_tab_selected.png") no-repeat bottom center;
+    color: #bfe3ff;
+}
+
+#content div.box div.title ul.links li.ui-tabs-selected a
+{
+    background: url("../../../resources/images/colors/blue/title_tab_selected.png") no-repeat bottom center;
+    color: #bfe3ff;
+}
+
+/* -----------------------------------------------------------
+    content -> right -> box / search
+----------------------------------------------------------- */
+
+#content div.box div.title div.search
+{
+    margin: 0;
+    padding: 6px 6px 6px 7px;
+    float: right;
+    background: url("../../resources/images/colors/blue/title_link.png") no-repeat top left;
+    border-left: 1px solid #316293;
+}
+
+#content div.box div.title div.search div.input
+{
+    float: left;
+}
+
+#content div.box div.title div.search div.input input
+{
+    margin: 0;
+    padding: 5px 7px 4px 7px;
+    background: #FFFFFF;
+    border: 1px solid #316293;
+    color: #000000;
+    font-family: Lucida Grande, Verdana, Lucida Sans Regular, Lucida Sans Unicode, Arial, sans-serif;
+    font-size: 12px;
+}
+
+#content div.box div.title div.search div.button
+{
+    float: left;
+}
+
+#content div.box div.title div.search div.button input
+{
+    margin: 0;
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Verdana, Helvetica, Sans-Serif;
+}
+
+#content div.box div.title div.search div.button input.ui-state-default
+{
+    margin: 0;
+    padding: 4px 12px 5px 12px;
+    overflow: hidden;
+    background: #4e85bb url("../../resources/images/colors/blue/button_highlight.png") repeat-x;
+    border: 1px solid #316293;
+    border-left: none;
+    color: #FFFFFF;
+    outline: none;
+    outline-style: none;
+}
+
+#content div.box div.title div.search div.button input.ui-state-hover
+{
+    margin: 0;
+    background: #46a0c1 url("../../resources/images/colors/blue/button_highlight_selected.png") repeat-x;
+    border: 1px solid #316293;
+    border-left: none;
+
+    color: #FFFFFF;
+}
+
+/* -----------------------------------------------------------
+    content -> right -> box / headings
+
+
+#content div.box h1,
+#content div.box h2,
+#content div.box h3,
+#content div.box h4,
+#content div.box h5,
+#content div.box h6
+{
+
+    padding: 10px 0 5px 0px;
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+    clear: both;
+    overflow: hidden;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+
+    content -> right -> box / paragraphs
+----------------------------------------------------------- */
+
+#content div.box p
+{
+    margin: 0 24px 10px 24px;
+    padding: 0;
+    color: #5f5f5f;
+    font-size: 12px;
+    line-height: 150%;
+}
+
+#content div.box blockquote
+{
+
+    margin: 0 34px 0 34px;
+    padding: 0 0 0 14px;
+    border-left: 4px solid #DDDDDD;
+    color: #5f5f5f;
+    font-size: 11px;
+    line-height: 150%;
+}
+
+#content div.box blockquote p
+{
+    margin: 10px 0 10px 0;
+    padding: 0;
+}
+
+/* -----------------------------------------------------------
+    content -> right -> box / lists
+----------------------------------------------------------- */
+
+#content div.box dl
+{
+    margin: 10px 24px 10px 24px;
+}
+
+#content div.box dt
+{
+    margin: 0;
+    font-size: 12px;
+}
+
+#content div.box dd
+{
+    margin: 0;
+    padding: 8px 0 8px 15px;
+    font-size: 12px;
+}
+
+#content div.box ul.left
+{
+    float: left;
+}
+
+#content div.box ol.left
+{
+    float: left;
+}
+
+#content div.box li
+{
+    padding: 4px 0 4px 0;
+    font-size: 12px;
+}
+
+#content div.box ol.lower-roman,
+#content div.box ol.upper-roman
+{
+    margin: 10px 24px 10px 44px;
+}
+
+#content div.box ol.lower-alpha,
+#content div.box ol.upper-alpha
+{
+    margin: 10px 24px 10px 44px;
+}
+
+#content div.box ol.decimal
+{
+    margin: 10px 24px 10px 44px;
+}
+
+#content div.box ul.disc,
+#content div.box ul.circle
+{
+    margin: 10px 24px 10px 38px;
+}
+
+#content div.box ul.square
+{
+    margin: 10px 24px 10px 40px;
+}
+
+/* -----------------------------------------------------------
+    content -> right -> box / images
+----------------------------------------------------------- */
+
+#content div.box img.left
+{
+    margin: 10px 10px 10px 0;
+    border: none;
+    float: left;
+}
+
+#content div.box img.right
+{
+    margin: 10px 0 10px 10px;
+    border: none;
+    float: right;
+}
+
+/* -----------------------------------------------------------
+    content -> right -> box / messages
+----------------------------------------------------------- */
+
+#content div.box div.messages
+{
+    margin: 0 20px 0 20px;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+#content div.box div.message
+{
+    margin: 0 0 10px 0;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+#content div.box div.message div.image
+{
+    margin: 2px 0 2px 5px;
+    padding: 6px;
+    float: left;
+}
+
+#content div.box div.message div.image img
+{
+    margin: 0;
+    vertical-align: middle;
+}
+
+#content div.box div.message div.text
+{
+    margin: 0;
+    padding: 10px 6px 10px 6px;
+    float: left;
+}
+
+#content div.box div.message div.dismiss
+{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+#content div.box div.message div.dismiss a
+{
+    margin: 15px 14px 0 0;
+    padding: 0;
+    height: 16px;
+    width: 16px;
+    display: block;
+    background: url("../../resources/images/icons/cross.png") no-repeat;
+}
+
+#content div.box div.message div.text h1,
+#content div.box div.message div.text h2,
+#content div.box div.message div.text h3,
+#content div.box div.message div.text h4,
+#content div.box div.message div.text h5,
+#content div.box div.message div.text h6
+{
+    margin: 0;
+    padding: 0px;
+    border: none;
+}
+
+#content div.box div.message div.text span
+{
+    margin: 0;
+    padding: 5px 0 0 0;
+    height: 1%;
+    display: block;
+}
+
+#content div.box div.message-error
+{
+    height: 1%;
+    clear: both;
+    overflow: hidden;
+    background: #FBE3E4;
+    border: 1px solid #FBC2C4;
+    color: #860006;
+}
+
+#content div.box div.message-error h6
+{
+    color: #860006;
+}
+
+#content div.box div.message-warning
+{
+    height: 1%;
+    clear: both;
+    overflow: hidden;
+    background: #FFF6BF;
+    border: 1px solid #FFD324;
+    color: #5f5200;
+}
+
+#content div.box div.message-warning h6
+{
+    color: #5f5200;
+}
+
+#content div.box div.message-notice
+{
+    height: 1%;
+    clear: both;
+    overflow: hidden;
+    background: #8FBDE0;
+    border: 1px solid #6BACDE;
+    color: #003863;
+}
+
+#content div.box div.message-notice h6
+{
+    color: #003863;
+}
+
+#content div.box div.message-success
+{
+    height: 1%;
+    clear: both;
+    overflow: hidden;
+    background: #E6EFC2;
+    border: 1px solid #C6D880;
+    color: #4e6100;
+}
+
+#content div.box div.message-success h6
+{
+    color: #4e6100;
+}
+
+/*select*/
+.b-custom-select { color: #000; position: relative; display: inline-block; height: 23px; background: #fff; border-width: 1px; border-style: solid; border-top-color: #c3c3c3; border-bottom-color: #838383; border-left-color: #a2a2a2; border-right-color: #a2a2a2; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -moz-box-shadow: inset 0 1px 3px 1px #f2f2f4; -webkit-box-shadow: inset 0 1px 3px 1px #f2f2f4; box-shadow: inset 0 1px 3px 1px #f2f2f4; font-size: 13px; vertical-align: middle; text-align: left; }
+.b-custom-select_disabled { color: #bcbcbc; background: #f9f9f9; }
+.b-custom-select_focus { }
+.b-custom-select_expanded { z-index: 199; height: 24px; border-bottom: none; -webkit-border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; border-radius: 3px 3px 0 0; }
+.lte7 .b-custom-select { display: inline; zoom: 1; }
+.b-custom-select__title { cursor: pointer; overflow: hidden; }
+.b-custom-select__title__text { margin: 0px 30px 3px 10px; font-size: 12px; white-space: nowrap; overflow: hidden; }
+.b-custom-select__title__icon { position: absolute; top: 0px; right: 0px; display: block; width: 22px; height: 23px; border-left: 1px solid #d8d8d8; -moz-border-radius: 0 3px 3px 0; -webkit-border-radius: 0 3px 3px 0; border-radius: 0 3px 3px 0; background: #fff; }
+.b-custom-select__title__icon:after { content: ""; position: absolute; top: 10px; right: 7px; border-top: 5px solid #666; border-left: 5px solid transparent; border-right: 5px solid transparent; }
+.b-custom-select_expanded .b-custom-select__title__icon { }
+.b-custom-select_disabled .b-custom-select__title__icon { background: #f9f9f9; }
+.b-custom-select__title__input { height: 20px; padding: 2px 9px; border: none; background: none; outline: 0; font-family: "PTSansRegular"; font-size: 12px; }
+.b-custom-select__dropdown { background: #fff; border: 1px solid #cccccc; border-width: 1px; border-style: solid; border-top-color: #c3c3c3; border-bottom-color: #838383; border-left-color: #a2a2a2; border-right-color: #a2a2a2; -moz-border-radius: 0 0 3px 3px; -webkit--moz-border-radius: 0 0 3px 3px; border-radius: 0 0 3px 3px; overflow: hidden; }
+.b-custom-select__list { padding: 5px 5px; }
+.b-custom-select__group { padding: 4px; white-space: nowrap; font-family: "PTSansRegular"; font-size: 12px; font-weight: bold; }
+.b-custom-select__item { position: relative; display: block; height: 15px; padding: 4px 5px; overflow: hidden; cursor: pointer; white-space: nowrap; border-bottom: 1px dotted #cecece; font-family: "PTSansRegular"; font-size: 12px; }
+.b-custom-select_multiple .b-custom-select__item { }
+.b-custom-select__item:hover,
+.b-custom-select__item.selected { background: #f9f9f9; }
+.b-custom-select__item.disabled { color: #bcbcbc; }
+.b-custom-select_multiple .b-custom-select__item:hover,
+.b-custom-select_multiple .b-custom-select__item.selected { background: none; }
+.b-custom-select_multiple .b-custom-select__item.selected:before { background-position: -46px 0; }
+.b-custom-select__wrap-scrollbar { position: absolute; top: 0; bottom: 0; right: 0; width: 22px; border-left: 1px solid #ececec; }
+.b-custom-select__dropdown__inner::-webkit-scrollbar { width: 0; }
+.b-custom-select__wrap-scrollbar:after { content: ""; position: absolute; top: 3px; bottom: 3px; left: 9px; width: 3px; border-left: 1px solid #b1b1b1; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: #cccccc; }
+.b-custom-select__scrollbar { position: absolute; z-index: 1; left: 0; right: 0; margin-left: auto; margin-right: auto; width: 10px; height: 40px !important; background: #666; border-radius: 4px; cursor: pointer; }
+/* -----------------------------------------------------------
+    content 结束
+----------------------------------------------------------- */

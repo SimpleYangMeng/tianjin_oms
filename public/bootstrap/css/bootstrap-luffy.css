@@ -1,0 +1,81 @@
+/**
+ * @author luffy
+ */
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: 768px) {
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: 992px) {
+    .container{
+        width: 970px;
+        margin-top:20px;
+    }
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: 1200px) {
+    .container{
+        width: 750px;
+        margin-top:15px;
+    }
+}
+
+.row-luffy-rules > .lead{
+    text-indent: 40px;
+    margin: 0 0 10px;
+}
+
+.row-luffy-rules ol{
+    margin-left: 40px;
+}
+
+.bs-example-luffy {
+    position:relative;
+    display: block;
+    padding: 9.5px;
+    padding-top:30px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bs-example-luffy:before{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: rgb(51, 51, 51);
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+}
+.bs-example3-luffy:before{
+    content:"附件";
+}
+.bs-example1-luffy:before{
+    content:"附1";
+}
+.bs-example2-luffy:before{
+    content:"附2";
+}
+
+
+.table-field-type{
+    height: 200px;
+}
+.table-bordered{
+    margin-bottom: 0px;
+}
+
+@media print {
+    .bs-example-luffy {
+        border: none;
+    }
+}

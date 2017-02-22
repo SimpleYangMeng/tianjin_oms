@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message><Head><MessageID>9060</MessageID><FunctionCode>2</FunctionCode><MessageType>LBQ001</MessageType><SenderID>BH</SenderID><ReceiverID>CUSTOMS</ReceiverID><SendTime>20160526035346631</SendTime><Version>1.0</Version></Head><Declaration><LBQ><FORM_ID>120107199010163929</FORM_ID><CUSTOM_CODE>0213</CUSTOM_CODE></LBQ></Declaration></Message>

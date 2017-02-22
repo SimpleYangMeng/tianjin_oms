@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/ServiceForXmachineSoap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceForXmachineSoap" targetNamespace="http://service.webservice/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.webservice/" elementFormDefault="unqualified" targetNamespace="http://service.webservice/" version="1.0">
+            <xs:element name="checkResult" type="tns:checkResult"/>
+            <xs:element name="checkResultResponse" type="tns:checkResultResponse"/>
+            <xs:complexType name="checkResult">
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="checkResultResponse">
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="checkResultResponse">
+        <wsdl:part element="tns:checkResultResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="checkResultRequest">
+        <wsdl:part element="tns:checkResultRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:portType name="ServiceForXmachine">
+        <wsdl:operation name="checkResult">
+            <wsdl:input message="tns:checkResultRequest"></wsdl:input>
+            <wsdl:output message="tns:checkResultResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ServiceForXmachineSoapBinding" type="tns:ServiceForXmachine">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="checkResult">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ServiceForXmachineSoap">
+        <wsdl:port binding="tns:ServiceForXmachineSoapBinding" name="ServiceForXmachinePort">
+            <soap:address location="http://www.tianjinoms.com/default/xmachine-soap/web-service" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

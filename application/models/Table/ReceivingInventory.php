@@ -1,0 +1,157 @@
+<?php
+class Table_ReceivingInventory
+{
+    protected $_table = null;
+
+    public function __construct()
+    {
+        $this->_table = new DbTable_ReceivingInventory();
+    }
+
+    public function getAdapter()
+    {
+        return $this->_table->getAdapter();
+    }
+
+    public static function getInstance()
+    {
+        return new Table_ReceivingInventory();
+    }
+
+    /**
+     * @param $row
+     * @return mixed
+     */
+    public function add($row)
+    {
+        return $this->_table->insert($row);
+    }
+
+
+    /**
+     * @param $row
+     * @param $value
+     * @param string $field
+     * @return mixed
+     */
+    public function update($row, $value, $field = "ri_id")
+    {
+        $where = $this->_table->getAdapter()->quoteInto("{$field}= ?", $value);
+        return $this->_table->update($row, $where);
+    }
+
+    /**
+     * @param $value
+     * @param string $field
+     * @return mixed
+     */
+    public function delete($value, $field = "ri_id")
+    {
+        $where = $this->_table->getAdapter()->quoteInto("{$field}= ?", $value);
+        return $this->_table->delete($where);
+    }
+
+    /**
+     * @param $value
+     * @param string $field
+     * @param string $colums
+     * @return mixed
+     */
+    public function getByField($value, $field = 'ri_id', $colums = "*")
+    {
+        $select = $this->_table->getAdapter()->select();
+        $table = $this->_table->info('name');
+        $select->from($table, $colums);
+        $select->where("{$field} = ?", $value);
+        return $this->_table->getAdapter()->fetchRow($select);
+    }
+
+    public function getForUpdate($ril_id) {
+    	$sql = 'select * from receiving_inventory where ri_id='.$ril_id.' for update;';
+    	return $this->_table->getAdapter()->fetchRow($sql);
+    }
+
+    public function getByWhProduct($receivingCode, $gMergeNo)
+    {
+		$colums = "*";
+        $select = $this->_table->getAdapter()->select();
+        $table = $this->_table->info('name');
+        $select->from($table, $colums);
+        $select->where("receiving_code = ?", $receivingCode);
+        $select->where("merge_g_no = ?", $gMergeNo);
+		$sql = $select->__toString();
+        $sql.=" for update";
+        return $this->_table->getAdapter()->fetchRow($sql);
+    }
+
+	public function getByWhere($where, $colums = "*") {
+        $select = $this->_table->getAdapter()->select();
+        $table = $this->_table->info('name');
+        $select->from($table, $colums);
+        foreach($where as $field=>$value) {
+            $select->where("{$field} = ?", $value);
+        }
+        return $this->_table->getAdapter()->fetchRow($select);
+    }
+
+    public function getAll()
+    {
+        $select = $this->_table->getAdapter()->select();
+        $table = $this->_table->info('name');
+        $select->from($table, "*");
+        return $this->_table->getAdapter()->fetchAll($select);
+    }
+
+    /**
+     * @param array $condition
+     * @param string $type
+     * @param int $pageSize
+     * @param int $page
+     * @param string $orderBy
+     * @return array|string
+     */
+    public function getByCondition($condition = array(), $type = '*', $pageSize = 0, $page = 1, $orderBy = "",$lock='')
+    {
+        $select = $this->_table->getAdapter()->select();
+        $table = $this->_table->info('name');
+        $select->from($table, $type);
+        $select->where("1 =?", 1);
+        /*CONDITION_START*/
+        if(isset($condition["receiving_code"]) && $condition["receiving_code"] != ""){
+            $select->where("receiving_code =?",$condition["receiving_code"]);
+        }
+		if(isset($condition["receiving_id"]) && $condition["receiving_id"] != ""){
+            $select->where("receiving_id =?",$condition["receiving_id"]);
+        }
+        if(isset($condition["warehouse_code"]) && $condition["warehouse_code"] != ""){
+            $select->where("warehouse_code =?",$condition["warehouse_code"]);
+        }
+        if(isset($condition["merge_g_no"]) && $condition["merge_g_no"] != ""){
+        	$select->where("merge_g_no = ?",$condition["merge_g_no"]);
+        }
+        if(isset($condition["ri_id"]) && $condition["ri_id"] != ""){
+            $select->where("ri_id = ?",$condition["ri_id"]);
+        }
+		if(isset($condition["warehouse_array"]) && !empty($condition["warehouse_array"])){
+            $select->where("warehouse_code IN (?)",$condition["warehouse_array"]);
+        }
+		
+        /*CONDITION_END*/
+        if ('count(*)' == $type) {
+            return $this->_table->getAdapter()->fetchOne($select);
+        } else {
+            if (!empty($orderBy)) {
+                $select->order($orderBy);
+            }
+            if ($pageSize > 0 and $page > 0) {
+                $start = ($page - 1) * $pageSize;
+                $select->limit($pageSize, $start);
+            }
+            $sql = $select->__toString();
+            if(!empty($lock)){
+                $sql.=" $lock";
+            }
+            return $this->_table->getAdapter()->fetchAll($sql);
+        }
+    }
+}
